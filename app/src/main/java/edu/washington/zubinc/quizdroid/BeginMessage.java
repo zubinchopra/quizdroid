@@ -22,7 +22,7 @@ public class BeginMessage extends Activity {
         title = (TextView)findViewById(R.id.title);
         begin = (Button)findViewById(R.id.begin);
         Intent intent = getIntent();
-        final String subject = intent.getStringExtra(MainActivity.KEY);
+        String subject = intent.getStringExtra(MainActivity.KEY);
         title.setText(subject);
         begin.setOnClickListener(new MyListener(this, subject));
     }

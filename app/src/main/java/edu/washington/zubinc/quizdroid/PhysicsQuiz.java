@@ -26,6 +26,7 @@ public class PhysicsQuiz extends Activity {
 
         this.options = (RadioGroup)findViewById(R.id.options);
         this.submit = (Button)findViewById(R.id.submit);
+        this.back = (Button)findViewById(R.id.back);
         this.o1 = (RadioButton)findViewById(R.id.o1);
         this.o2 = (RadioButton)findViewById(R.id.o2);
         this.o3 = (RadioButton)findViewById(R.id.o3);
