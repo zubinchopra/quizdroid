@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.1.0_0159f6a849563316c02764bb2c7d3638765eee00.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.1.0_69cb6ec8339284a40bd5499aa2d3a652fa6d1058.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ac890148d772d7ae2e1e19a7cf4b07e186d21244">
+        <dex dex="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_77e5d77469123bda3d3f3f678d85c351e3ef62c3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.1.0_fb7a678c072ec3e8f8a5737576e53e885d0242eb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="225046346355d2b48be844cda290563fe0feaf99">
+        <dex dex="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/pre-dexed/debug/instant-run_3ac537b54bf5f6751bc787bb343641187c64150b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.1.0_fdf55d3c9c74a3d1c2318c058ed8af9032d7e06f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.1.0_fd0abb20b035037b45e5e1a5e04e4d4143bac697.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.1.0_92ad0f4b0c3288ca80ae3a12a0dd2330a921e9c3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.1.0_f0b64670bee76accbaf6b7cc8cd2a883fbd19d7d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.1.0_7d1f31ab8739ba479182bcd333b20a17ed57c026.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.1.0_5ec1b27206d2056314f773163add5954bf054750.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Macbook/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.0/support-annotations-25.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="/Users/Macbook/Documents/INFO 448/biggobutton/quizdroid/app/build/intermediates/pre-dexed/debug/support-annotations-25.1.0_0f0303f3f02476e314ff7edd1b5e9cff179b5ced.jar" />
+    </item>
+
+</items>

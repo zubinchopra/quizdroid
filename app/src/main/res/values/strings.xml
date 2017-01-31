@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">quizdroid</string>
+    <string name="title_activity_physics_quiz">PhysicsQuiz</string>
+    <string name="title_activity_marvel_quiz">MarvelQuiz</string>
+    <string name="title_activity_physics_quiz2">PhysicsQuiz2</string>
+    <string name="title_activity_marvel_quiz2">MarvelQuiz2</string>
+</resources>
