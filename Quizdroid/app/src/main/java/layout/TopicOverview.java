@@ -37,6 +37,10 @@ public class TopicOverview extends Fragment {
             @Override
             public void onClick(View v) {
                 QuestionFragment fragment = new QuestionFragment();
+                Bundle b = new Bundle();
+                b.putInt("CHECK", 0);
+                b.putInt("COUNT", 0);
+                fragment.setArguments(b);
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.frame, fragment);
                 fragmentTransaction.commit();

@@ -1,8 +1,10 @@
 package layout;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import edu.washington.zubinc.quizdroid.Main2Activity;
+import edu.washington.zubinc.quizdroid.MainActivity;
 import edu.washington.zubinc.quizdroid.R;
 
 /**
@@ -21,8 +25,6 @@ import edu.washington.zubinc.quizdroid.R;
  * to handle interaction events.
  */
 public class AnswerFragment extends Fragment {
-
-    int count = 1;
 
     private OnFragmentInteractionListener mListener;
 
@@ -37,31 +39,47 @@ public class AnswerFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_answer, container, false);
         Button next = (Button)v.findViewById(R.id.next);
+        Activity activity = this.getActivity();
 
         TextView noOfCorrect = (TextView)v.findViewById(R.id.noOfCorrect);
         int n = getArguments().getInt("CORRECT") + Integer.parseInt(noOfCorrect.getText().toString());
         noOfCorrect.setText("" + n);
+        int count = getArguments().getInt("COUNT");
+        Log.d("TAG", ""+count);
 
-        next.setOnClickListener(new MyListener());
+        if(count == 2)
+            next.setText("Finish");
+        next.setOnClickListener(new MyListener(n, count, activity));
 
         return v;
     }
 
     public class MyListener implements View.OnClickListener{
 
+        int n;
+        int count;
+        Activity activity;
+
+        public MyListener(int n, int count, Activity activity){
+            this.n = n;
+            this.count = count;
+            this.activity = activity;
+        }
+
         @Override
         public void onClick(View v) {
+            Bundle b = new Bundle();
+            b.putInt("CHECK", this.n);
+            b.putInt("COUNT", this.count);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
-            if(count < 2){
-                count++;
-                Log.d("TAG", ""+count);
+            if(this.count < 2){
                 QuestionFragment questionFragment = new QuestionFragment();
+                questionFragment.setArguments(b);
                 ft.replace(R.id.frame, questionFragment);
             }
             else{
-                count = 1;
-                TopicOverview topicOverview = new TopicOverview();
-                ft.replace(R.id.frame, topicOverview);
+                Intent intent = new Intent(this.activity, MainActivity.class);
+                startActivity(intent);
             }
             ft.commit();
         }
