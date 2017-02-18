@@ -4,14 +4,12 @@ package layout;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
 import edu.washington.zubinc.quizdroid.R;
 
 /**
@@ -76,10 +74,13 @@ public class QuestionFragment extends Fragment {
             AnswerFragment answerFragment = new AnswerFragment();
             Bundle b = new Bundle();
             b.putInt("CORRECT", n);
-            b.putInt("COUNT", count);
+            b.putInt("COUNT", this.count);
             answerFragment.setArguments(b);
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.frame, answerFragment);
+            if(this.count == 1) {
+                ft.addToBackStack("questionFragment");
+            }
             ft.commit();
 
         }
