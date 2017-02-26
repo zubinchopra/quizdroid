@@ -9,13 +9,19 @@ import android.util.Log;
 
 public class QuizApp extends Application {
 
-    private TopicRepository instance = new TopicRepository();
+    private static QuizApp instance = new QuizApp();
+    private TopicRepository topicRepository = new TopicRepository();
 
     public void onCreate(){
         Log.d("TAG", "onCreate Fired");
     }
 
-    public TopicRepository getRepository(){
-        return this.instance;
+    public static QuizApp getInstance(){
+        return instance;
     }
+
+    public TopicRepository getRepository(){
+        return this.topicRepository;
+    }
+
 }

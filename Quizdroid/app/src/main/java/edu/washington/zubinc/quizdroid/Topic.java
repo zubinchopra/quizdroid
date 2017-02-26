@@ -1,12 +1,16 @@
 package edu.washington.zubinc.quizdroid;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Macbook on 2/19/17.
  */
 
-public class Topic {
+public class Topic implements Serializable {
 
     private String title;
     private String shortDes;
@@ -44,5 +48,4 @@ public class Topic {
     public void setQuestions(Question question){
         this.questions.add(question);
     }
-
 }
