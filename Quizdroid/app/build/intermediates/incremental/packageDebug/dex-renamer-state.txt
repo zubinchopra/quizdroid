@@ -1,0 +1,4 @@
+#Sat Feb 25 16:28:05 PST 2017
+base.0=/Users/Macbook/Documents/INFO 448/quizdroid/Quizdroid/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
+renamed.0=classes.dex
+file.0=/Users/Macbook/Documents/INFO 448/quizdroid/Quizdroid/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
