@@ -3,4 +3,19 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_settings">Preferences</string>
+    <string name="title_activity_preferences">Preferences</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- URL settings -->
+    <string name="pref_header_url">Set URL</string>
+
+    <string name="pref_title_display_name">Set URL</string>
+    <string name="pref_default_display_name">http://tednewardsandbox.site44.com/questions.json</string>
+
+    <string name="pref_default_display_timeinterval">1 (in minutes)</string>
+    <string name="pref_default_interval">Set Time Interval</string>
+
+
 </resources>

@@ -1,0 +1,13 @@
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- These settings headers are only used on tablets. -->
+
+    <header
+        android:fragment="edu.washington.zubinc.quizdroid.PreferencesActivity$UrlFragment"
+        android:title= "@string/pref_header_url" />
+
+    <header
+        android:fragment="edu.washington.zubinc.quizdroid.PreferencesActivity$SetIntervalFragment"
+        android:title="@string/pref_default_interval" />
+
+</preference-headers>
