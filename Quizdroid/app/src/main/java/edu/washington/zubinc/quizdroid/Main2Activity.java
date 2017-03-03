@@ -3,7 +3,9 @@ package edu.washington.zubinc.quizdroid;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -23,11 +25,11 @@ public class Main2Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        final Topic topic = (Topic) getIntent().getSerializableExtra("selectedTopic");
+        final Topic topic = (Topic) getIntent().getExtras().getSerializable("TOPIC");
         this.title = (TextView)findViewById(R.id.title);
         this.title.setText(topic.getTitle());
         this.longDes = (TextView)findViewById(R.id.des);
-        this.longDes.setText(topic.getLongDes());
+        this.longDes.setText(topic.getShortDes());
         this.proceed = (Button)findViewById(R.id.proceed);
 
         this.proceed.setOnClickListener(new View.OnClickListener() {
@@ -35,7 +37,7 @@ public class Main2Activity extends Activity {
             public void onClick(View v) {
                 Bundle b = new Bundle();
                 b.putSerializable("TOPIC", topic);
-                b.putInt("COUNTER", 1);
+                b.putInt("COUNTER", 0);
                 b.putInt("CORRECT_COUNTER", 0);
                 callFragment(b);
             }

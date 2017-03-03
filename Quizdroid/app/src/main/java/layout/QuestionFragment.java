@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,7 @@ public class QuestionFragment extends Fragment {
     RadioButton o3;
     RadioButton o4;
     Button submit;
+    View overallView;
 
     public QuestionFragment() {
         // Required empty public constructor
@@ -46,31 +48,35 @@ public class QuestionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.fragment_question, container, false);
+        overallView = inflater.inflate(R.layout.fragment_question, container, false);
 
-        Topic topic = (Topic) getArguments().getSerializable("TOPIC");
+        Bundle b = this.getArguments();
+        Topic topic = (Topic) b.getSerializable("TOPIC");
         int numberOfQuestions = topic.getQuestions().size();
         int counter = getArguments().getInt("COUNTER");
         int correctCounter = getArguments().getInt("CORRECT_COUNTER");
-        Question question = (Question) topic.getQuestions().get(counter - 1);
+        Question question = (Question) topic.getQuestions().get(counter);
         int check = question.getCorrect();
-        String correctAnswer = question.getOptions()[check];
+        String correctAnswer = question.getOptions()[check - 1];
+        Log.d("TAG", correctAnswer);
 
+        this.questionText = (TextView) overallView.findViewById(R.id.questionText);
         this.questionText.setText(question.getQuestion());
-        this.radioGroup = (RadioGroup)v.findViewById(R.id.radioGroup);
-        this.o1 = (RadioButton)v.findViewById(R.id.o1);
+        this.radioGroup = (RadioGroup)overallView.findViewById(R.id.radioGroup);
+        this.o1 = (RadioButton)overallView.findViewById(R.id.o1);
         this.o1.setText(question.getOptions()[0]);
-        this.o2 = (RadioButton)v.findViewById(R.id.o2);
+        this.o2 = (RadioButton)overallView.findViewById(R.id.o2);
         this.o2.setText(question.getOptions()[1]);
-        this.o3 = (RadioButton)v.findViewById(R.id.o3);
+        this.o3 = (RadioButton)overallView.findViewById(R.id.o3);
         this.o3.setText(question.getOptions()[2]);
-        this.o4 = (RadioButton)v.findViewById(R.id.o4);
+        this.o4 = (RadioButton)overallView.findViewById(R.id.o4);
         this.o4.setText(question.getOptions()[3]);
 
-        this.submit = (Button)v.findViewById(R.id.submit);
-        this.submit.setOnClickListener(new MyListener(topic, v, correctAnswer, correctCounter, counter, numberOfQuestions));
+        this.submit = (Button)overallView.findViewById(R.id.submit);
+        this.radioGroup.setOnCheckedChangeListener(new MyRadioListener());
+        this.submit.setOnClickListener(new MyListener(topic, overallView, correctAnswer, correctCounter, counter, numberOfQuestions));
 
-        return v;
+        return overallView;
     }
 
     public class MyListener implements View.OnClickListener{
@@ -94,9 +100,13 @@ public class QuestionFragment extends Fragment {
         @Override
         public void onClick(View v) {
             Bundle b = new Bundle();
-            if(checkCorrect(v, correctAnswer))
+            if(checkCorrect(correctAnswer))
                 correctCounter += 1;
             counter += 1;
+
+            Log.d("TAG", "" + correctCounter);
+            Log.d("TAG", "" + counter);
+
             b.putSerializable("TOPIC", topic);
             b.putInt("CORRECT_COUNTER", correctCounter);
             b.putInt("COUNTER", counter);
@@ -111,9 +121,10 @@ public class QuestionFragment extends Fragment {
     }
 
     // Check whether the user answered the question correctly
-    public boolean checkCorrect(View v, String correctAnswer){
+    public boolean checkCorrect(String correctAnswer){
         int checkId = radioGroup.getCheckedRadioButtonId();
-        RadioButton radioButton = (RadioButton)v.findViewById(checkId);
+        RadioButton radioButton = (RadioButton)overallView.findViewById(checkId);
+        Log.d("TAG", "" + radioButton.getText().toString());
         String answer = radioButton.getText().toString();
         return answer.equalsIgnoreCase(correctAnswer);
     }
@@ -121,15 +132,9 @@ public class QuestionFragment extends Fragment {
     // Makes the submit button visible
     public class MyRadioListener implements RadioGroup.OnCheckedChangeListener{
 
-        Button submit;
-
-        public MyRadioListener(Button submit){
-            this.submit = submit;
-        }
-
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
-            this.submit.setVisibility(View.VISIBLE);
+            submit.setVisibility(View.VISIBLE);
         }
     }
 

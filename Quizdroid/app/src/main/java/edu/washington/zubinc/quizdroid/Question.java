@@ -12,6 +12,14 @@ public class Question implements Serializable{
     private String question;
     private String[] options;
     private int correct;
+    private int index;
+
+    public Question(){
+        this.question = "";
+        this.options = new String[4];
+        this.correct = 0;
+        this.index = 0;
+    }
 
     public String getQuestion(){
         return this.question;
@@ -26,7 +34,8 @@ public class Question implements Serializable{
     }
 
     public void setOptions(String option){
-        options[options.length] = option;
+        options[this.index] = option;
+        this.index++;
     }
 
     public int getCorrect(){

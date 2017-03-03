@@ -86,9 +86,9 @@ public class AnswerFragment extends Fragment {
         Activity activity = getActivity();
 
         this.noOfCorrect = (TextView)v.findViewById(R.id.noOfCorrect);
-        this.noOfCorrect.setText(correctCounter);
+        this.noOfCorrect.setText("" + correctCounter);
         this.totalNumber = (TextView)v.findViewById(R.id.totalNumber);
-        this.totalNumber.setText(numberOfQuestions);
+        this.totalNumber.setText("" + numberOfQuestions);
         this.button = (Button)v.findViewById(R.id.next);
 
         if(isDone(counter, numberOfQuestions))

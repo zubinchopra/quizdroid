@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,6 +17,13 @@ public class Topic implements Serializable {
     private String shortDes;
     private String longDes;
     private List<Question> questions;
+
+    public Topic(){
+        this.title = "";
+        this.shortDes = "";
+        this.longDes = "";
+        this.questions = new ArrayList<Question>();
+    }
 
     public String getTitle(){
         return this.title;

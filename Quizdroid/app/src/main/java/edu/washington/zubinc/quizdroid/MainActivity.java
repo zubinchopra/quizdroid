@@ -15,13 +15,12 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends Activity {
 
     ListView list;
-    FileInputStream fileInputStream = null;
-    JSONObject jsonObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,11 @@ public class MainActivity extends Activity {
 
         this.list = (ListView)findViewById(R.id.list);
         QuizApp app = QuizApp.getInstance();
-        List<Topic> listOfTopics = app.getRepository().getTopic();
+        Log.d("TAG", "We're here!");
+        TopicRepository topicRepository =  app.getRepository();
+        List<Topic> listOfTopics = new ArrayList<Topic>(topicRepository.getTopicRepository());
+        Log.d("TAG", "" + listOfTopics.size());
+
         String[] title = new String[listOfTopics.size()];
         String[] shortDes = new String[listOfTopics.size()];
         for(int i = 0; i < listOfTopics.size(); i++) {
@@ -56,11 +59,13 @@ public class MainActivity extends Activity {
             Intent intent = new Intent(MainActivity.this, Main2Activity.class);
             String selected = (String)(list.getItemAtPosition(position));
             for(Topic t : listOfTopics){
-                if(t.getTitle().equalsIgnoreCase(selected))
+                if(t.getTitle().equalsIgnoreCase(selected)) {
                     selectedTopic = t;
+                }
             }
             Bundle b = new Bundle();
-            b.putSerializable("selectedTopic", selectedTopic);
+            b.putSerializable("TOPIC", selectedTopic);
+            intent.putExtras(b);
             startActivity(intent);
         }
     }

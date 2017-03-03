@@ -2,10 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="layout.QuestionFragment">
+    tools:context="layout.QuestionFragment"
+    android:background="#fff">
 
     <!-- TODO: Update blank fragment layout -->
     <FrameLayout
+        android:id="@id/placeholder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -52,6 +54,7 @@
             </RadioGroup>
 
             <Button
+                android:layout_marginTop="50dp"
                 android:id="@+id/submit"
                 android:text="Submit"
                 android:visibility="gone"

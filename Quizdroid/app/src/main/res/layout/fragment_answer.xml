@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.washington.zubinc.quizdroid.AnswerFragment">
+    tools:context="edu.washington.zubinc.quizdroid.AnswerFragment"
+    android:background="#fff">
 
     <!-- TODO: Update blank fragment layout -->
     <FrameLayout
@@ -23,22 +24,27 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:textSize="20dp"
                     android:text="You have got "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
+                    android:textSize="20dp"
                     android:id="@+id/noOfCorrect"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
+                    android:textSize="20dp"
                     android:text=" out of "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
+                    android:textSize="20dp"
                     android:id="@+id/totalNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
+                    android:textSize="20dp"
                     android:text=" correct!"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
