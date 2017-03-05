@@ -3,11 +3,13 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="edu.washington.zubinc.quizdroid.PreferencesActivity$UrlFragment"
-        android:title= "@string/pref_header_url" />
+        android:fragment="edu.washington.zubinc.quizdroid.MyPrefs$GeneralPreferenceFragment"
+        android:icon="@drawable/ic_info_black_24dp"
+        android:title="@string/pref_header_general" />
 
     <header
-        android:fragment="edu.washington.zubinc.quizdroid.PreferencesActivity$SetIntervalFragment"
-        android:title="@string/pref_default_interval" />
+        android:fragment="edu.washington.zubinc.quizdroid.MyPrefs$NotificationPreferenceFragment"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="Set Interval" />
 
 </preference-headers>

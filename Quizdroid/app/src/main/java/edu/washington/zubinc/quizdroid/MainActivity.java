@@ -2,7 +2,10 @@ package edu.washington.zubinc.quizdroid;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,6 +35,7 @@ public class MainActivity extends Activity {
         this.list = (ListView)findViewById(R.id.list);
         QuizApp app = QuizApp.getInstance();
         Log.d("TAG", "We're here!");
+
         TopicRepository topicRepository =  app.getRepository();
         List<Topic> listOfTopics = new ArrayList<Topic>(topicRepository.getTopicRepository());
         Log.d("TAG", "" + listOfTopics.size());
@@ -49,14 +53,14 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_preferences, menu);
+        getMenuInflater().inflate(R.menu.myprefs, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        startActivity(new Intent(this, PreferencesActivity.class));
+        startActivity(new Intent(this, MyPrefs.class));
 
         return super.onOptionsItemSelected(item);
     }
@@ -83,6 +87,14 @@ public class MainActivity extends Activity {
             b.putSerializable("TOPIC", selectedTopic);
             intent.putExtras(b);
             startActivity(intent);
+        }
+    }
+
+    private class MyAsync extends AsyncTask<String, String, Void> {
+
+        @Override
+        protected Void doInBackground(String... params) {
+            return null;
         }
     }
 }
