@@ -37,6 +37,7 @@ public class MainActivity extends Activity {
         Log.d("TAG", "We're here!");
 
         TopicRepository topicRepository =  app.getRepository();
+        Log.d("BLAH", "BLAH");
         List<Topic> listOfTopics = new ArrayList<Topic>(topicRepository.getTopicRepository());
         Log.d("TAG", "" + listOfTopics.size());
 

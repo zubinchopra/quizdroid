@@ -27,40 +27,49 @@ import java.util.concurrent.ExecutionException;
 /**
  * Created by Macbook on 2/19/17.
  */
+
+
 public class TopicRepository {
-    List<Topic> topicList = new ArrayList<Topic>();
+
     String url;
-    MyAsync myAsync;
-    JSONArray jsonArray;
+
+    List<Topic> topicList = new ArrayList<Topic>();
 
     public TopicRepository(String url){
         Log.d("TAG", "At topic repository");
         this.url = url;
-        myAsync = (MyAsync) new MyAsync(this.url).execute();
-        Log.d("LIST", "" + topicList.size());
+        try {
+            this.topicList = new MyAsync(this.url, this.topicList).execute().get();
+            Log.d("TAG", "SUCCESS");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        Log.d("LIST Hello", "" + topicList.size());
     }
 
     public List getTopicRepository(){
         return this.topicList;
     }
 
-    private class MyAsync extends AsyncTask<String, String, JSONArray> {
+    private class MyAsync extends AsyncTask<String, String, List<Topic>> {
 
         String url;
         JSONArray jsonArray;
+        List<Topic> topicList;
 
-        public MyAsync(String url){
+        public MyAsync(String url, List<Topic> topicList){
             this.url = url;
+            this.topicList = topicList;
         }
 
         @Override
-        protected JSONArray doInBackground(String... params) {
-            Log.d("TAG", "inside doinbackground");
-            HttpURLConnection urlConnection = null;
-            URL url = null;
+        protected List<Topic> doInBackground(String... params) {
+            Log.d("TAG", "inside doInBackground");
             try {
-                url = new URL(this.url);
-                urlConnection = (HttpURLConnection)url.openConnection();
+                URL url = new URL(this.url);
+                HttpURLConnection urlConnection = (HttpURLConnection)url.openConnection();
                 urlConnection.setRequestMethod("GET");
                 urlConnection.connect();
 
@@ -84,17 +93,13 @@ public class TopicRepository {
                 e.printStackTrace();
             }
 
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(JSONArray jsonArray) {
             try {
                 addTopics();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            getTopicRepository();
+
+            return this.topicList;
         }
 
         public void addTopics() throws JSONException {
