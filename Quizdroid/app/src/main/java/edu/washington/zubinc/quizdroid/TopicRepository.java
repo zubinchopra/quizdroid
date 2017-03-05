@@ -65,6 +65,11 @@ public class TopicRepository {
         }
 
         @Override
+        protected void onPreExecute() {
+            Log.d("PRE_EXEXCUTE", "in here");
+        }
+
+        @Override
         protected List<Topic> doInBackground(String... params) {
             Log.d("TAG", "inside doInBackground");
             try {
@@ -132,6 +137,10 @@ public class TopicRepository {
             Log.d("LIST", "" + topicList.size());
         }
 
+        @Override
+        protected void onPostExecute(List<Topic> topics) {
+            Log.d("POST_EXECUTE", "in here");
+        }
     }
 
 }
