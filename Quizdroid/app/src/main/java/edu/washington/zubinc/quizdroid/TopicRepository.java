@@ -2,6 +2,11 @@ package edu.washington.zubinc.quizdroid;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.provider.Settings;
+import android.telephony.CellSignalStrength;
+import android.telephony.PhoneStateListener;
+import android.telephony.SignalStrength;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -32,12 +37,16 @@ import java.util.concurrent.ExecutionException;
 public class TopicRepository {
 
     String url;
-
     List<Topic> topicList = new ArrayList<Topic>();
+    Context context;
+    String interval;
 
-    public TopicRepository(String url){
+    public TopicRepository(String url, String interval, Context context){
         Log.d("TAG", "At topic repository");
         this.url = url;
+        this.context = context;
+        this.interval = interval;
+        Log.d("TAG", this.interval);
         try {
             this.topicList = new MyAsync(this.url, this.topicList).execute().get();
             Log.d("TAG", "SUCCESS");
@@ -58,15 +67,19 @@ public class TopicRepository {
         String url;
         JSONArray jsonArray;
         List<Topic> topicList;
+        File file;
+        TelephonyManager telephonyManager;
 
         public MyAsync(String url, List<Topic> topicList){
             this.url = url;
             this.topicList = topicList;
+            telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         }
 
         @Override
         protected void onPreExecute() {
             Log.d("PRE_EXEXCUTE", "in here");
+            Toast.makeText(context, "Downloading file from URL " + url + " in " + interval + " minutes", Toast.LENGTH_LONG).show();
         }
 
         @Override
@@ -78,6 +91,9 @@ public class TopicRepository {
                 urlConnection.setRequestMethod("GET");
                 urlConnection.connect();
 
+                file = new File(context.getFilesDir(), "questions.json");
+                FileOutputStream fos = context.openFileOutput("questions.json", context.MODE_PRIVATE);
+
                 if(urlConnection.getResponseCode() == 200 || urlConnection.getResponseCode() == 201){
                     BufferedReader br = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
                     StringBuilder sb = new StringBuilder();
@@ -86,9 +102,14 @@ public class TopicRepository {
                         sb.append(line+"\n");
                     }
                     br.close();
-                    Log.d("TAG", sb.toString());
+                    Log.d("SB", sb.toString());
+                    fos.write(sb.toString().getBytes());
+                    fos.close();
                     this.jsonArray = new JSONArray(sb.toString());
+                } else if(isAirplaneModeOn(context)){
+                    Log.d("TAG", "Airplane Mode On!");
                 }
+
 
             } catch (MalformedURLException e) {
                 e.printStackTrace();
@@ -140,6 +161,13 @@ public class TopicRepository {
         @Override
         protected void onPostExecute(List<Topic> topics) {
             Log.d("POST_EXECUTE", "in here");
+        }
+
+        private boolean isAirplaneModeOn(Context context) {
+
+            return Settings.System.getInt(context.getContentResolver(),
+                    Settings.Global.AIRPLANE_MODE_ON, 0) != 0;
+
         }
     }
 
