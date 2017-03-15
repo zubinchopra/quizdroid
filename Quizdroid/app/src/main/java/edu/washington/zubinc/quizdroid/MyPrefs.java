@@ -126,9 +126,8 @@ public class MyPrefs extends PreferenceActivity {
         Context context = getApplicationContext();
         SharedPreferences setPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = setPrefs.edit();
-        editor.putString("url_text", setPrefs.getString("url_text", ""));
-        editor.putString("interval_text", setPrefs.getString("interval_text", ""));
-        Log.d("TAG", setPrefs.getString("url_text", ""));
+        editor.putString("url_text", setPrefs.getString("url_text", "http://tednewardsandbox.site44.com/questions.json"));
+        editor.putString("interval_text", setPrefs.getString("interval_text", "1"));
         editor.commit();
     }
 

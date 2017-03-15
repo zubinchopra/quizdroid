@@ -31,7 +31,7 @@ public class QuizApp extends Application {
 
         SharedPreferences getPrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
 
-        instance.url = getPrefs.getString("url_text", "http://tednewardsandbox.site44.com/questions.json");
+        instance.url = getPrefs.getString("url_text", "");
         instance.interval = getPrefs.getString("interval_text", "");
         instance.context = getApplicationContext();
     }
