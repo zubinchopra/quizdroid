@@ -108,6 +108,9 @@ public class TopicRepository {
                     this.jsonArray = new JSONArray(sb.toString());
                 } else if(isAirplaneModeOn(context)){
                     Log.d("TAG", "Airplane Mode On!");
+                } else{
+                    Toast.makeText(context, "Retrying downloading the file!", Toast.LENGTH_LONG);
+                    new TopicRepository(this.url, interval, context);
                 }
 
 
